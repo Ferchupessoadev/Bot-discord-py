@@ -31,7 +31,6 @@ async def on_message(message):
     await bot.process_commands(message)
 
 
-
 @bot.command()
 async def dolar_oficial(ctx):
     url = "https://dolarapi.com/v1/dolares/oficial"
@@ -60,13 +59,15 @@ async def saludar(ctx):
 
 
 @bot.command()
-async def list(ctx):
-    await ctx.send(
-        """> -saludar 
-    > -funciona
-    > -ping
-    > -hola """
+async def Help(ctx):
+    message = (
+        "> `-saludar`::Un saludo\n"
+        "> `-funciona`::Funcionalidad\n"
+        "> `-ping `::Responde pong\n"
+        "> `-hola`::Saludo \n"
+        "> `-dolar_oficial`::datos del dolar \n"
     )
+    await ctx.send(message)
 
 
 bot.run(TOKEN)
