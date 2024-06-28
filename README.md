@@ -29,3 +29,10 @@ Install dependencies.
 ```bash
 pip install -r requirements.txt
 ```
+
+Change the token for Discord or create a global variable with the name TOKEN_DISCORD
+
+```python
+# Reemplaza 'TU_TOKEN_DEL_BOT' con tu token de bot
+TOKEN = os.environ.get("TOKEN_DISCORD", default="TU_TOKEN_DEL_BOT")
+```
