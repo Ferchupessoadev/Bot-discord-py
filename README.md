@@ -36,3 +36,9 @@ Change the os.environ.get for your bot's token or create a global variable with 
 # Reemplaza 'TU_TOKEN_DEL_BOT' con tu token de bot
 TOKEN = os.environ.get("TOKEN_DISCORD", default="TU_TOKEN_DEL_BOT")
 ```
+
+Finally, run the script
+
+```python
+python3 bot.py
+```
