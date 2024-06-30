@@ -1,4 +1,4 @@
-# Bot de discord
+# Discord´s bot
 
 ## Development setup
 
