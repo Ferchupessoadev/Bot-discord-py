@@ -1,11 +1,13 @@
+import discord
+from discord.ext import commands
 
-def setup_events(bot):
+def setup_events(bot: commands.Bot):
     @bot.event
     async def on_ready():
         print(f"Conectado como {bot.user}")
 
     @bot.event
-    async def on_message(message):
+    async def on_message(message: discord.Message):
         if message.author == bot.user:
             return
         if "-hola" == message.content.lower():
