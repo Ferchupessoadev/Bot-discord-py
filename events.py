@@ -1,35 +1,22 @@
 import discord
 from discord.ext import commands
 
+
 def setup_events(bot: commands.Bot):
     @bot.event
     async def on_ready():
         print(f"Conectado como {bot.user}")
 
     @bot.event
-    async def on_message(message: discord.Message):
-        if message.author == bot.user:
-            return
-        if "-hola" == message.content.lower():
-            msj = f"¡Hola! ¿Cómo estás? {message.author.mention}"
-            await message.channel.send(msj)
-        if "-Help +18" == message.content:
-            msj = (
-                "**Comando +18**\n"
-                "**handjob**:: paja\n"
-                "**footjob**:: paja con los pies\n"
-                "**fuck**:: cojerse a un compañero\n"
-            )
-            await message.channel.send(msj)
-        if "-Help" == message.content:
-            msj = (
-                "**Comandos de Fercho Bot**\n"
-                "> `-saludar`::Un saludo\n"
-                "> `-funciona`::Funcionalidad\n"
-                "> `-ping `::Responde pong\n"
-                "> `-hola`::Saludo \n"
-                "> `-dolar_oficial`::datos del dolar \n"
-                "\n"
-            )
-            await message.channel.send(msj)
-        await bot.process_commands(message)
+    async def on_member_join(member: discord.Member):
+        print(f"{member} se ha unido al servidor")
+
+    @bot.event
+    async def on_member_remove(member: discord.Member):
+        print(f"{member} se ha ido del servidor, hasta pronto")
+
+    @bot.event
+    async def on_member_update(before: discord.Member, after: discord.Member):
+        channel = bot.get_channel(1274468614593839247)
+        if before.nick != after.nick:
+            await channel.send(f"'{before.nick}' ha cambiado de apodo a '{after.nick}'")
